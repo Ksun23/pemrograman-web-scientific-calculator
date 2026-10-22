@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scientific Calculator - kalkulator ilmiah berbasis HTML, CSS, dan JavaScript.">
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Scientific Calculator beranda">
+        <span class="brand-mark">∑</span>
+        <span>
+          <strong>SCIENTIFIC</strong>
+          <small>CALCULATOR</small>
+        </span>
+      </a>
+      <span class="status"><span class="status-dot"></span> READY</span>
+    </header>
+
+    <section class="intro">
+      <p class="eyebrow">MATHEMATICS TOOLKIT</p>
+      <h1>Calculate with <span>precision.</span></h1>
+      <p class="subtitle">Kalkulator ilmiah sederhana untuk membantu perhitungan sehari-hari.</p>
+    </section>
+
+    <section class="calculator" aria-label="Kalkulator ilmiah">
+      <div class="calculator-head">
+        <span class="panel-label">WORKSPACE <span class="live-dot"></span></span>
+        <div class="mode-switch" role="group" aria-label="Mode sudut">
+          <button class="mode-button active" id="degMode" type="button" aria-pressed="true">DEG</button>
+          <button class="mode-button" id="radMode" type="button" aria-pressed="false">RAD</button>
+        </div>
+      </div>
+
+      <div class="display" aria-live="polite">
+        <div class="display-meta">
+          <span id="displayLabel">INPUT</span>
+          <button id="copyButton" class="copy-button" type="button" title="Salin hasil" aria-label="Salin hasil">COPY ↗</button>
+        </div>
+        <div id="expression" class="expression" aria-label="Ekspresi">0</div>
+        <div class="result-row">
+          <span class="equals">=</span>
+          <output id="result" class="result" aria-label="Hasil">0</output>
+        </div>
+        <p id="message" class="message" role="status">Masukkan perhitungan untuk memulai.</p>
+      </div>
+
+      <div class="keypad" id="keypad">
+        <button class="key function" data-action="clear" type="button">AC</button>
+        <button class="key function" data-action="backspace" type="button" aria-label="Hapus karakter terakhir">⌫</button>
+        <button class="key function" data-value="(" type="button">(</button>
+        <button class="key function" data-value=")" type="button">)</button>
+        <button class="key operator" data-value="÷" type="button">÷</button>
+
+        <button class="key function" data-value="sin(" type="button">sin</button>
+        <button class="key function" data-value="cos(" type="button">cos</button>
+        <button class="key function" data-value="tan(" type="button">tan</button>
+        <button class="key function" data-value="√(" type="button">√</button>
+        <button class="key operator" data-value="×" type="button">×</button>
+
+        <button class="key function" data-value="ln(" type="button">ln</button>
+        <button class="key function" data-value="log(" type="button">log</button>
+        <button class="key function" data-value="π" type="button">π</button>
+        <button class="key function" data-value="e" type="button">e</button>
+        <button class="key operator" data-value="−" type="button">−</button>
+
+        <button class="key" data-value="7" type="button">7</button>
+        <button class="key" data-value="8" type="button">8</button>
+        <button class="key" data-value="9" type="button">9</button>
+        <button class="key function" data-value="^" type="button">xʸ</button>
+        <button class="key operator" data-value="+" type="button">+</button>
+
+        <button class="key" data-value="4" type="button">4</button>
+        <button class="key" data-value="5" type="button">5</button>
+        <button class="key" data-value="6" type="button">6</button>
+        <button class="key function" data-value="!" type="button">x!</button>
+        <button class="key operator" data-value="%" type="button">%</button>
+
+        <button class="key" data-value="1" type="button">1</button>
+        <button class="key" data-value="2" type="button">2</button>
+        <button class="key" data-value="3" type="button">3</button>
+        <button class="key function" data-value="Ans" type="button">Ans</button>
+        <button class="key operator" data-value="mod" type="button">mod</button>
+
+        <button class="key function" data-action="sign" type="button">±</button>
+        <button class="key" data-value="0" type="button">0</button>
+        <button class="key" data-value="." type="button">.</button>
+        <button class="key function" data-value="^2" type="button">x²</button>
+        <button class="key equals-key" data-action="calculate" type="button">=</button>
+      </div>
+      <p class="keyboard-hint"><span>↵</span> Enter untuk menghitung <span>⌫</span> Backspace untuk menghapus</p>
+    </section>
+
+    <section class="history-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR RECENT WORK</p>
+          <h2>Riwayat perhitungan</h2>
+        </div>
+        <button id="clearHistory" class="text-button" type="button">HAPUS RIWAYAT</button>
+      </div>
+      <div id="historyList" class="history-list">
+        <p class="empty-history">Belum ada perhitungan. Hasilmu akan muncul di sini.</p>
+      </div>
+    </section>
+
+    <footer>
+      <span>BUILT WITH HTML · CSS · JAVASCRIPT</span>
+      <span>MADE FOR LEARNING <span class="footer-symbol">✳</span></span>
+    </footer>
+  </main>
+</body>
+</html>
